@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "AI-powered email assistant for Thunderbird. Compose, improve, summarize, and reply to emails using Claude AI (Anthropic). Requires your own Anthropic API key.",
   "author": "Community",
-  "homepage_url": "https://github.com/community/claude-mail-assistant",
+  "homepage_url": "https://github.com/sbelcl/claude-mail-assistant",
   "browser_specific_settings": {
     "gecko": {
       "id": "claude-mail-assistant@thunderbird",
