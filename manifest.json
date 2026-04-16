@@ -1,0 +1,37 @@
+{
+  "manifest_version": 2,
+  "name": "Claude Mail Assistant",
+  "version": "1.0.0",
+  "description": "AI-powered email assistant for Thunderbird. Compose, improve, summarize, and reply to emails using Claude AI (Anthropic). Requires your own Anthropic API key.",
+  "author": "Community",
+  "homepage_url": "https://github.com/community/claude-mail-assistant",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "claude-mail-assistant@thunderbird",
+      "strict_min_version": "102.0"
+    }
+  },
+  "permissions": [
+    "compose",
+    "messagesRead",
+    "storage",
+    "https://api.anthropic.com/*"
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "compose_action": {
+    "default_title": "Claude Mail Assistant",
+    "default_popup": "compose/compose.html",
+    "default_icon": "icons/claude.svg"
+  },
+  "message_display_action": {
+    "default_title": "Claude Mail Assistant",
+    "default_popup": "display/display.html",
+    "default_icon": "icons/claude.svg"
+  },
+  "options_ui": {
+    "page": "options/options.html",
+    "open_in_tab": true
+  }
+}

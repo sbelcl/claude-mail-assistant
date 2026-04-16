@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Claude Mail Assistant — Privacy Policy</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, sans-serif;
+      font-size: 14px;
+      max-width: 680px;
+      margin: 40px auto;
+      padding: 0 24px 60px;
+      background: #1e1e2e;
+      color: #cdd6f4;
+      line-height: 1.7;
+    }
+
+    h1 {
+      font-size: 22px;
+      font-weight: 700;
+      color: #cba6f7;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .subtitle {
+      color: #6c7086;
+      font-size: 13px;
+      margin-bottom: 36px;
+    }
+
+    h2 {
+      font-size: 15px;
+      font-weight: 700;
+      color: #89b4fa;
+      margin: 28px 0 10px;
+    }
+
+    p { margin-bottom: 10px; }
+
+    ul {
+      padding-left: 20px;
+      margin-bottom: 10px;
+    }
+
+    ul li { margin-bottom: 6px; }
+
+    .warning {
+      background: #3a2a1e;
+      border: 1px solid #fab387;
+      border-radius: 6px;
+      padding: 14px 16px;
+      margin: 20px 0;
+      color: #fab387;
+      font-size: 13px;
+    }
+
+    .warning strong { display: block; margin-bottom: 4px; font-size: 14px; }
+
+    a { color: #89b4fa; }
+
+    hr {
+      border: none;
+      border-top: 1px solid #313244;
+      margin: 32px 0;
+    }
+
+    .footer {
+      color: #6c7086;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>
+    <svg width="24" height="24" viewBox="0 0 32 32"><rect width="32" height="32" rx="6" fill="#D97757"/><text x="16" y="22" font-family="serif" font-size="18" font-weight="bold" fill="white" text-anchor="middle">C</text></svg>
+    Claude Mail Assistant
+  </h1>
+  <p class="subtitle">Privacy Policy — last updated April 2026</p>
+
+  <p>
+    Claude Mail Assistant is a free, open-source Thunderbird add-on that lets you use
+    Anthropic's Claude AI to help compose, improve, summarize, and reply to emails.
+    This policy explains what data is sent where and how your API key is stored.
+  </p>
+
+  <div class="warning">
+    <strong>Important: this add-on is not affiliated with or endorsed by Anthropic.</strong>
+    "Claude" is a trademark of Anthropic, PBC. This is an independent community project.
+  </div>
+
+  <h2>What data is sent to Anthropic</h2>
+  <p>When you use any AI feature in this add-on, the following is sent directly from
+  your Thunderbird to Anthropic's API (<code>api.anthropic.com</code>):</p>
+  <ul>
+    <li>The content of the email you are reading or composing</li>
+    <li>The subject line of that email</li>
+    <li>Your instruction or selected quick action</li>
+    <li>Your Anthropic API key (in the request header)</li>
+  </ul>
+  <p>
+    No data passes through any intermediate server — the request goes directly from
+    your machine to Anthropic. This add-on has no backend of its own.
+  </p>
+  <p>
+    Anthropic's own privacy policy governs how they handle data sent to their API:
+    <a href="https://www.anthropic.com/legal/privacy" target="_blank">anthropic.com/legal/privacy</a>
+  </p>
+
+  <h2>What is stored locally</h2>
+  <ul>
+    <li>Your API key — stored in Thunderbird's local extension storage (<code>browser.storage.local</code>)</li>
+    <li>Your selected model preference</li>
+  </ul>
+  <p>
+    This data never leaves your machine except as part of the API request described above.
+    It is not synced, shared, or uploaded anywhere.
+  </p>
+
+  <h2>What this add-on does NOT do</h2>
+  <ul>
+    <li>Does not collect analytics or usage statistics</li>
+    <li>Does not send data to any server other than <code>api.anthropic.com</code></li>
+    <li>Does not read emails in the background — only processes the currently active email when you click a button</li>
+    <li>Does not store email content beyond the duration of a single API call</li>
+  </ul>
+
+  <h2>Your API key security</h2>
+  <p>
+    Your Anthropic API key is stored locally and sent directly to Anthropic with each request.
+    Because this is a client-side add-on, the key is not protected by a server layer.
+    We recommend:
+  </p>
+  <ul>
+    <li>Using a dedicated API key for this add-on with a usage limit set in the Anthropic console</li>
+    <li>Not sharing your Thunderbird profile with untrusted users</li>
+    <li>Revoking the key at <a href="https://console.anthropic.com/account/keys" target="_blank">console.anthropic.com</a> if you suspect it has been compromised</li>
+  </ul>
+
+  <h2>Open source</h2>
+  <p>
+    This add-on is open source. You can review the full source code, report issues, or
+    contribute at:
+    <a href="https://github.com/community/claude-mail-assistant" target="_blank">github.com/community/claude-mail-assistant</a>
+  </p>
+
+  <h2>Contact</h2>
+  <p>
+    Questions or concerns? Open an issue on the GitHub repository linked above.
+  </p>
+
+  <hr>
+  <p class="footer">
+    Claude Mail Assistant is an independent community project and is not affiliated with,
+    endorsed by, or in any way officially connected with Anthropic, PBC.
+  </p>
+
+</body>
+</html>

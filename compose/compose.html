@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Claude AI — Compose</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, sans-serif;
+      font-size: 13px;
+      width: 340px;
+      padding: 12px;
+      background: #1e1e2e;
+      color: #cdd6f4;
+    }
+
+    h2 {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #cba6f7;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .quick-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 10px;
+    }
+
+    .quick-btn {
+      padding: 5px 10px;
+      border: 1px solid #45475a;
+      border-radius: 4px;
+      background: #313244;
+      color: #cdd6f4;
+      cursor: pointer;
+      font-size: 12px;
+    }
+
+    .quick-btn:hover { background: #45475a; }
+
+    label {
+      display: block;
+      margin-bottom: 4px;
+      color: #a6adc8;
+      font-size: 12px;
+    }
+
+    textarea {
+      width: 100%;
+      height: 70px;
+      padding: 7px;
+      border: 1px solid #45475a;
+      border-radius: 4px;
+      background: #313244;
+      color: #cdd6f4;
+      font-size: 13px;
+      resize: vertical;
+      margin-bottom: 8px;
+    }
+
+    textarea:focus { outline: none; border-color: #cba6f7; }
+
+    .btn-row {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      flex: 1;
+      padding: 7px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    #askBtn {
+      background: #cba6f7;
+      color: #1e1e2e;
+    }
+
+    #askBtn:hover { background: #b48ef7; }
+    #askBtn:disabled { background: #45475a; color: #6c7086; cursor: not-allowed; }
+
+    #resultBox {
+      display: none;
+      background: #313244;
+      border: 1px solid #45475a;
+      border-radius: 4px;
+      padding: 8px;
+      margin-bottom: 8px;
+      max-height: 200px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+      line-height: 1.5;
+    }
+
+    .action-row {
+      display: none;
+      gap: 6px;
+    }
+
+    #replaceBtn {
+      background: #a6e3a1;
+      color: #1e1e2e;
+    }
+
+    #replaceBtn:hover { background: #89d988; }
+
+    #appendBtn {
+      background: #89dceb;
+      color: #1e1e2e;
+    }
+
+    #appendBtn:hover { background: #74c7ec; }
+
+    #copyBtn {
+      background: #fab387;
+      color: #1e1e2e;
+    }
+
+    #copyBtn:hover { background: #f9a06b; }
+
+    .error { color: #f38ba8; font-size: 12px; margin-top: 4px; }
+
+    .spinner {
+      display: inline-block;
+      width: 12px; height: 12px;
+      border: 2px solid #6c7086;
+      border-top-color: #cba6f7;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      vertical-align: middle;
+      margin-right: 4px;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+  <h2>
+    <svg width="16" height="16" viewBox="0 0 32 32"><rect width="32" height="32" rx="6" fill="#D97757"/><text x="16" y="22" font-family="serif" font-size="18" font-weight="bold" fill="white" text-anchor="middle">C</text></svg>
+    Claude — Compose Assistant
+  </h2>
+
+  <div class="quick-actions">
+    <button class="quick-btn" data-prompt="Improve the clarity and flow of this email.">Improve</button>
+    <button class="quick-btn" data-prompt="Rewrite this email in a formal, professional tone.">Formal</button>
+    <button class="quick-btn" data-prompt="Rewrite this email in a friendly, casual tone.">Casual</button>
+    <button class="quick-btn" data-prompt="Make this email shorter and more concise.">Shorter</button>
+    <button class="quick-btn" data-prompt="Fix any grammar or spelling mistakes in this email.">Fix grammar</button>
+    <button class="quick-btn" data-action="reply">Draft reply</button>
+  </div>
+
+  <label for="instructions">Custom instruction</label>
+  <textarea id="instructions" placeholder="e.g. Translate to Spanish, add a subject line, make it more urgent…"></textarea>
+
+  <div class="btn-row">
+    <button id="askBtn">Ask Claude</button>
+  </div>
+
+  <div id="resultBox"></div>
+  <div class="action-row" id="actionRow">
+    <button id="replaceBtn">Replace draft</button>
+    <button id="appendBtn">Append</button>
+    <button id="copyBtn">Copy</button>
+  </div>
+
+  <script src="compose.js"></script>
+</body>
+</html>

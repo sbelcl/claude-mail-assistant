@@ -1,0 +1,6 @@
+# Packaged add-on
+*.xpi
+
+# OS
+.DS_Store
+Thumbs.db

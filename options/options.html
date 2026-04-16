@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Claude Mail Assistant — Settings</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, sans-serif;
+      font-size: 14px;
+      max-width: 520px;
+      margin: 40px auto;
+      padding: 0 20px 40px;
+      background: #1e1e2e;
+      color: #cdd6f4;
+    }
+
+    h1 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #cba6f7;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .tagline {
+      font-size: 12px;
+      color: #6c7086;
+      margin-bottom: 28px;
+    }
+
+    .notice {
+      background: #2a2a3e;
+      border: 1px solid #45475a;
+      border-left: 3px solid #fab387;
+      border-radius: 6px;
+      padding: 12px 14px;
+      margin-bottom: 24px;
+      font-size: 12px;
+      color: #a6adc8;
+      line-height: 1.6;
+    }
+
+    .notice strong { color: #fab387; }
+    .notice a { color: #89b4fa; }
+
+    .field { margin-bottom: 20px; }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #a6adc8;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 9px 12px;
+      border: 1px solid #45475a;
+      border-radius: 6px;
+      background: #313244;
+      color: #cdd6f4;
+      font-size: 14px;
+    }
+
+    input:focus, select:focus {
+      outline: none;
+      border-color: #cba6f7;
+    }
+
+    .hint {
+      font-size: 12px;
+      color: #6c7086;
+      margin-top: 4px;
+    }
+
+    .hint a { color: #89b4fa; }
+
+    .btn-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    button {
+      padding: 9px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    #saveBtn { background: #cba6f7; color: #1e1e2e; }
+    #saveBtn:hover { background: #b48ef7; }
+
+    #testBtn {
+      background: #313244;
+      color: #cdd6f4;
+      border: 1px solid #45475a;
+    }
+
+    #testBtn:hover { background: #45475a; }
+    #testBtn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    #status {
+      margin-top: 14px;
+      padding: 10px 14px;
+      border-radius: 6px;
+      font-size: 13px;
+      display: none;
+    }
+
+    #status.success { background: #1e3a2f; border: 1px solid #a6e3a1; color: #a6e3a1; }
+    #status.error   { background: #3a1e1e; border: 1px solid #f38ba8; color: #f38ba8; }
+
+    hr {
+      border: none;
+      border-top: 1px solid #313244;
+      margin: 32px 0 16px;
+    }
+
+    .footer {
+      font-size: 11px;
+      color: #6c7086;
+      line-height: 1.6;
+    }
+
+    .footer a { color: #89b4fa; }
+  </style>
+</head>
+<body>
+  <h1>
+    <svg width="24" height="24" viewBox="0 0 32 32"><rect width="32" height="32" rx="6" fill="#D97757"/><text x="16" y="22" font-family="serif" font-size="18" font-weight="bold" fill="white" text-anchor="middle">C</text></svg>
+    Claude Mail Assistant
+  </h1>
+  <p class="tagline">Community add-on — not affiliated with Anthropic</p>
+
+  <div class="notice">
+    <strong>Privacy notice:</strong> When you use any AI feature, the content of the
+    active email and your API key are sent directly from your machine to
+    <strong>Anthropic's API</strong> (<code>api.anthropic.com</code>).
+    No data passes through any third-party server.
+    Your API key is stored locally in Thunderbird only.
+    <a href="../privacy.html" target="_blank">Full privacy policy</a>
+  </div>
+
+  <div class="field">
+    <label for="apiKey">Anthropic API Key</label>
+    <input type="password" id="apiKey" placeholder="sk-ant-…" autocomplete="off">
+    <p class="hint">
+      Get your key at <a href="https://console.anthropic.com/account/keys" target="_blank">console.anthropic.com</a>.
+      Tip: set a monthly usage limit on that page to avoid surprise charges.
+    </p>
+  </div>
+
+  <div class="field">
+    <label for="model">Model</label>
+    <select id="model">
+      <option value="claude-sonnet-4-6">Claude Sonnet 4.6 (recommended)</option>
+      <option value="claude-opus-4-6">Claude Opus 4.6 (most capable, higher cost)</option>
+      <option value="claude-haiku-4-5-20251001">Claude Haiku 4.5 (fastest, lowest cost)</option>
+    </select>
+  </div>
+
+  <div class="btn-row">
+    <button id="saveBtn">Save</button>
+    <button id="testBtn">Test connection</button>
+  </div>
+
+  <div id="status"></div>
+
+  <hr>
+  <p class="footer">
+    Claude Mail Assistant is open source and free to use. You pay only for your own
+    Anthropic API usage — see <a href="https://www.anthropic.com/pricing" target="_blank">anthropic.com/pricing</a>.<br>
+    Source code &amp; issue tracker:
+    <a href="https://github.com/community/claude-mail-assistant" target="_blank">github.com/community/claude-mail-assistant</a>
+  </p>
+
+  <script src="options.js"></script>
+</body>
+</html>
