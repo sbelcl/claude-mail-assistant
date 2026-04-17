@@ -31,7 +31,6 @@ copyBtn.addEventListener("click", () => {
 
 replyBtn.addEventListener("click", async () => {
   if (!currentMessage) return;
-  const tab = await browser.messageDisplay.getDisplayedTab();
   await browser.compose.beginReply(currentMessage.id);
   // Brief delay then insert the drafted reply body
   setTimeout(async () => {
